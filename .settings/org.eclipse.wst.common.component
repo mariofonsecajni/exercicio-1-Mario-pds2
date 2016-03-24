@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SistemaEcommerce">
+    <wb-module deploy-name="AlbumDeMusicasNovo">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="SistemaEcommerce"/>
-        <property name="java-output-path" value="/SistemaEcommerce/build/classes"/>
+        <property name="context-root" value="AlbumDeMusicasNovo"/>
+        <property name="java-output-path" value="/AlbumDeMusicasNovo/build/classes"/>
     </wb-module>
 </project-modules>
