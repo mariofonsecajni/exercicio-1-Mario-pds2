@@ -36,6 +36,15 @@ public class Musica implements Serializable {
 	@JoinColumn(name="musicaArtista",referencedColumnName="musicaArtista")
 	MusicaArtista musicaArtista;
 
+	/*
+	@ManyToMany
+	@JoinTable(name="TB_ITEM_PEDIDO", 
+			   joinColumns= @JoinColumn(name="CD_ACERVO"), 
+			   inverseJoinColumns= @JoinColumn(name="CD_EMPRESTIMO"))
+	private List<Emprestimo> emprestimos;
+	
+	*/
+	
 	public Musica(Integer codigo, String nome, Double duracao) {
 		super();
 		this.codigo = codigo;
