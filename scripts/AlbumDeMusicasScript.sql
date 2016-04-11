@@ -7,7 +7,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema AlbumDeMusicas
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `AlbumDeMusicas` ;
 
 -- -----------------------------------------------------
 -- Schema AlbumDeMusicas
@@ -15,7 +14,16 @@ DROP SCHEMA IF EXISTS `AlbumDeMusicas` ;
 CREATE SCHEMA IF NOT EXISTS `AlbumDeMusicas` DEFAULT CHARACTER SET utf8 ;
 USE `AlbumDeMusicas` ;
 
--- -----------------------------------------------------
+
+
+DROP TABLE IF EXISTS `AlbumDeMusicas`.`Album` ;
+
+CREATE TABLE IF NOT EXISTS `AlbumDeMusicas`.`Album` (
+  `cod_album` INT NOT NULL,
+  `nm_album` VARCHAR(45) NULL,
+  `data` DATE NULL,
+  PRIMARY KEY (`cod_album`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -27,7 +35,14 @@ CREATE TABLE IF NOT EXISTS `AlbumDeMusicas`.`Musica` (
   `cod_musica` INT NOT NULL,
   `nm_musica` VARCHAR(45) NULL,
   `vl_duracao` DOUBLE NULL,
-  PRIMARY KEY (`cod_musica`))
+  `cod_album` INT NOT NULL,
+  PRIMARY KEY (`cod_musica`),
+  INDEX `fk_Musica_Album1_idx` (`cod_album` ASC),
+  CONSTRAINT `fk_Musica_Album1`
+    FOREIGN KEY (`cod_album`)
+    REFERENCES `AlbumDeMusicas`.`Album` (`cod_album`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -44,19 +59,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `AlbumDeMusicas`.`Album`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `AlbumDeMusicas`.`Album` ;
-
-CREATE TABLE IF NOT EXISTS `AlbumDeMusicas`.`Album` (
-  `cod_album` INT NOT NULL,
-  `nm_album` VARCHAR(45) NULL,
-  `data` DATE NULL,
-  PRIMARY KEY (`cod_album`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `AlbumDeMusicas`.`MusicaArtista`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `AlbumDeMusicas`.`MusicaArtista` ;
@@ -65,11 +67,9 @@ CREATE TABLE IF NOT EXISTS `AlbumDeMusicas`.`MusicaArtista` (
   `cod_musica_artista` INT NOT NULL,
   `cd_artista` INT NOT NULL,
   `cod_musica` INT NOT NULL,
-  `cod_album` INT NOT NULL,
-  PRIMARY KEY (`cod_musica_artista`, `cod_album`),
+  PRIMARY KEY (`cod_musica_artista`),
   INDEX `fk_MusicaArtista_Artista1_idx` (`cd_artista` ASC),
   INDEX `fk_MusicaArtista_Musica1_idx` (`cod_musica` ASC),
-  INDEX `fk_MusicaArtista_Album1_idx` (`cod_album` ASC),
   CONSTRAINT `fk_MusicaArtista_Artista1`
     FOREIGN KEY (`cd_artista`)
     REFERENCES `AlbumDeMusicas`.`Artista` (`cd_artista`)
@@ -79,11 +79,6 @@ CREATE TABLE IF NOT EXISTS `AlbumDeMusicas`.`MusicaArtista` (
     FOREIGN KEY (`cod_musica`)
     REFERENCES `AlbumDeMusicas`.`Musica` (`cod_musica`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_MusicaArtista_Album1`
-    FOREIGN KEY (`cod_album`)
-    REFERENCES `AlbumDeMusicas`.`Album` (`cod_album`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -91,7 +86,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-INSERT INTO `albumdemusicas`.`artista` (`cd_artista`, `nm_artista`) VALUES ('1', 'Fernandinho');
-INSERT INTO `albumdemusicas`.`artista` (`cd_artista`, `nm_artista`) VALUES ('2', 'Alda Celia');
-INSERT INTO `albumdemusicas`.`artista` (`cd_artista`, `nm_artista`) VALUES ('3', 'Thalles Roberto');
-INSERT INTO `albumdemusicas`.`artista` (`cd_artista`, `nm_artista`) VALUES ('4', 'Aline Barros');

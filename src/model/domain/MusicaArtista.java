@@ -26,12 +26,16 @@ public class MusicaArtista implements Serializable {
 	@Column(name="COD_MUSICA")
 	private Integer codigo;
 	
-
+	@ManyToOne
+	@JoinColumn(name = "COD_MUSICA", referencedColumnName = "COD_MUSICA")
 	private Musica musica;
+	
+	@ManyToOne
+	@JoinColumn(name = "CD_ARTISTA", referencedColumnName = "CD_ARTISTA")
 	private Artista artista;
 	
 	@ManyToOne
-	@JoinColumn(name="CoD_ALBUM",referencedColumnName="COD_ALBUM")
+	@JoinColumn(name="COD_ALBUM",referencedColumnName="COD_ALBUM")
 	private Album album;
 
 	public MusicaArtista(Integer codigo, Musica musica, Artista artista, Album album) {
