@@ -11,7 +11,7 @@ import model.domain.Album;
 
 public class AlbumDaoImpl implements AlbumDao {
 	
-	@PersistenceContext(unitName="AlbumDeAlbums")
+	@PersistenceContext(unitName="AlbumDeMusicas")
 	private EntityManager entityManager;
 	
 	@Override

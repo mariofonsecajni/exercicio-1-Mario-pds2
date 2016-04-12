@@ -1,6 +1,7 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,9 +35,18 @@ public class Musica implements Serializable {
 	@Column(name="VL_DURACAO")
 	private Double duracao;
 	
-	@OneToOne
-	@JoinColumn(name="musicaArtista",referencedColumnName="musicaArtista")
-	MusicaArtista musicaArtista;
+	@ManyToOne
+	private Album album;
+
+	
+	@ManyToMany
+	@JoinTable(name="MusicaArtista", 
+			   joinColumns= @JoinColumn(name="COD_MUSICA"), 
+			   inverseJoinColumns= @JoinColumn(name="COD_ARTISTA"))
+	private List<Artista> artistas;
+	
+	
+	
 
 	/*
 	@ManyToMany

@@ -37,7 +37,7 @@ public class Album implements Serializable {
 	private Date data;
 	
 	@OneToMany(mappedBy="album")
-	List<MusicaArtista> musicasArtistas;
+	List<Musica> musicas;
 		
 	public Album() {
 	}
