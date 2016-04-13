@@ -15,48 +15,44 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUSICA")
+@Table(name = "MUSICA")
 public class Musica implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="COD_MUSICA")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "COD_MUSICA")
 	private Integer codigo;
-	
-	@Column(name="NM_MUSICA")
+
+	@Column(name = "NM_MUSICA")
 	private String nome;
-	
-		
-	@Column(name="VL_DURACAO")
+
+	@Column(name = "VL_DURACAO")
 	private Double duracao;
-	
+
 	@ManyToOne
+	@JoinColumn(name = "COD_ALBUM", referencedColumnName = "COD_ALBUM")
 	private Album album;
 
-	
 	@ManyToMany
-	@JoinTable(name="MusicaArtista", 
-			   joinColumns= @JoinColumn(name="COD_MUSICA"), 
-			   inverseJoinColumns= @JoinColumn(name="COD_ARTISTA"))
+	@JoinTable(name = "MusicaArtista", joinColumns = @JoinColumn(name = "COD_MUSICA"),
+	inverseJoinColumns = @JoinColumn(name = "COD_ARTISTA"))
 	private List<Artista> artistas;
-	
-	
-	
 
 	/*
-	@ManyToMany
-	@JoinTable(name="TB_ITEM_PEDIDO", 
-			   joinColumns= @JoinColumn(name="CD_ACERVO"), 
-			   inverseJoinColumns= @JoinColumn(name="CD_EMPRESTIMO"))
-	private List<Emprestimo> emprestimos;
-	
-	*/
-	
+	 * @ManyToMany
+	 * 
+	 * @JoinTable(name="TB_ITEM_PEDIDO",
+	 * joinColumns= @JoinColumn(name="CD_ACERVO"),
+	 * inverseJoinColumns= @JoinColumn(name="CD_EMPRESTIMO")) private
+	 * List<Emprestimo> emprestimos;
+	 * 
+	 */
+
 	public Musica(Integer codigo, String nome, Double duracao) {
 		super();
 		this.codigo = codigo;
@@ -121,5 +117,5 @@ public class Musica implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 }
