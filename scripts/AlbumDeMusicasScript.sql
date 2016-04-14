@@ -86,3 +86,8 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('1', 'Aline Barros');
+INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('2', 'Fernandinho');
+INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('3', 'Thalles Roberto');
+INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('4', 'Anderson Freire');
+INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('5', 'Oficina G3');
