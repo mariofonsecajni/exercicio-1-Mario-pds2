@@ -91,3 +91,8 @@ INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('2'
 INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('3', 'Thalles Roberto');
 INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('4', 'Anderson Freire');
 INSERT INTO `albumdemusicas`.`artista` (`cod_artista`, `nm_artista`) VALUES ('5', 'Oficina G3');
+
+INSERT INTO `album` (`cod_album`,`nm_album`,`data`) VALUES (1,'Apaixonado','2013-01-10');
+INSERT INTO `album` (`cod_album`,`nm_album`,`data`) VALUES (2,'Galileu','2015-12-10');
+INSERT INTO `album` (`cod_album`,`nm_album`,`data`) VALUES (3,'Casa do Pai','2014-01-01');
+

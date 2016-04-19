@@ -26,7 +26,7 @@ public class Artista implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CD_ARTISTA")
+	@Column(name="CoD_ARTISTA")
 	private Integer codigo;
 	
 	@Column(name="NM_ARTISTA")

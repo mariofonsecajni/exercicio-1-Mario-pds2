@@ -17,7 +17,7 @@ public class MusicaDaoImpl implements MusicaDao {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Musica> getMusicas(Musica musica) {
-		StringBuffer hql = new StringBuffer("from musica a"
+		StringBuffer hql = new StringBuffer("from Musica a"
 				+ " where 1 = 1");		
 		if (musica.getCodigo() != null) {
 			hql.append(" and a.codigo = :codigo");

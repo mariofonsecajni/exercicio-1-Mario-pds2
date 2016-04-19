@@ -17,7 +17,7 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Album> getAlbums(Album album) {
-		StringBuffer hql = new StringBuffer("from album a"
+		StringBuffer hql = new StringBuffer("from Album a"
 				+ " where 1 = 1");		
 		if (album.getNumero() != null) {
 			hql.append(" and a.codigo = :codigo");

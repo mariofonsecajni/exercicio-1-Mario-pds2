@@ -17,7 +17,7 @@ public class ArtistaDaoImpl implements ArtistaDao {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Artista> getArtistas(Artista artista) {
-		StringBuffer hql = new StringBuffer("from artista a"
+		StringBuffer hql = new StringBuffer("from Artista a"
 				+ " where 1 = 1");		
 		if (artista.getCodigo() != null) {
 			hql.append(" and a.codigo = :codigo");
